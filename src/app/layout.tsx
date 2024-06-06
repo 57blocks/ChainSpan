@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import WalletProvider from "@/wagmi/walletProvider";
+import './globals.css'
+import { ThemeProvider } from "@material-tailwind/react";
+import customTheme from '@/materialTailwind/themeConfig'
+import MaterialTailwindThemeProvider from "@/materialTailwind/ThemeProvider";
+import { StickyNavbar } from "@/components/Nav";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <WalletProvider>
+          <MaterialTailwindThemeProvider>
+            <StickyNavbar />
+            {children}
+          </MaterialTailwindThemeProvider>
+        </WalletProvider>
+      </body>
     </html>
   );
 }
