@@ -27,12 +27,12 @@ export function StickyNavbar() {
     const navList = (
         <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8 text-capstackGray text-base ">
             <li className="hover:text-capstackBlue">
-                <Link href="/asdasd" className="py-4">
+                <Link href="/" className="py-4">
                     Points Farming
                 </Link>
             </li>
             <li className="hover:text-capstackBlue">
-                <Link href="#" className="py-4">
+                <Link href="/strategy" className="py-4">
                     Strategy Custody
                 </Link>
             </li>
