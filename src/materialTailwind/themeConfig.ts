@@ -7,5 +7,15 @@ export default {
                 }
             }
         }
+    },
+    chip: {
+        styles: {
+            base: {
+                chip: {
+                    textTransform: "unset",
+                    fontWeight: 400
+                }
+            }
+        }
     }
 }

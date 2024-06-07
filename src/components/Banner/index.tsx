@@ -17,8 +17,8 @@ export default function Banner({
             className='w-full absolute h-full'
         />
         <div className='absolute w-full h-full'>
-            <h2 className='m-auto w-1/3 text-center text-white font-semibold text-[32px] mt-20'>{title}</h2>
-            <div className="w-1/3 m-auto mt-8">
+            <h2 className='m-auto w-auto lg:w-1/3 lg:mx-auto text-center text-white font-semibold text-[32px] mt-20'>{title}</h2>
+            <div className="w-auto mx-4 lg:w-1/3 lg:mx-auto mt-8">
                 <Input
                     type="email"
                     placeholder="Search by name"
