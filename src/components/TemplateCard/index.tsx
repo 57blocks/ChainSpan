@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import EtherIcon from '@/../public/images/ether.png';
 import CoinIcon from '@/../public/images/coin.png';
+import Link from "next/link";
 export default function TemplateCard({
   type
 }: {
@@ -48,8 +49,16 @@ export default function TemplateCard({
       </div>
     </CardBody>
     <CardFooter className="pt-0 grid grid-cols-2 gap-3">
-      <Button variant="outlined" className="border-capstackBlue text-capstackBlue hover:bg-capstackBlue hover:text-white">Enter</Button>
-      <Button variant="outlined" className="border-capstackBlue text-capstackBlue hover:bg-capstackBlue hover:text-white">Exit</Button>
+      <Link href="/template?id=123123">
+        <Button variant="outlined" className="w-full font-normal border-capstackBlue text-capstackBlue hover:bg-capstackBlue hover:text-white">
+          Enter
+        </Button>
+      </Link>
+      <Link href="/template?id=123123&type=strategy">
+        <Button variant="outlined" className="w-full font-normal border-capstackBlue text-capstackBlue hover:bg-capstackBlue hover:text-white">
+          Exit
+        </Button>
+      </Link>
     </CardFooter>
   </Card>
 }

@@ -5,13 +5,18 @@ import useWalletConnector from "@/hooks/useWalletConnector";
 import { WalletIcon } from "@heroicons/react/24/solid";
 
 export default function ConnectWalletButton({
-    connectorId
+    connectorId,
+    className,
+    disabled = false
 }: {
-    connectorId: string
+    connectorId: string,
+    className?: string,
+    disabled?: boolean
 }) {
     const { connecthandler } = useWalletConnector(connectorId)
     return <Button
-        className="bg-capstackBlue text-white flex gap-3"
+        disabled={disabled}
+        className={"bg-capstackBlue text-white flex gap-3 items-center justify-center " + className}
         onClick={connecthandler}
     >
         <WalletIcon className='h-4 w-4' />
