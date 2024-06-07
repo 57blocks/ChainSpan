@@ -3,35 +3,40 @@
 import React from "react";
 import {
     Navbar,
-    MobileNav,
     Typography,
-    Button,
     IconButton,
-    Card,
     Collapse,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import UserConnection from "../UserConnection";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function StickyNavbar() {
+    const pathname = usePathname()
     const [openNav, setOpenNav] = React.useState(false);
-
+    const checkScreenWidth = () => window.innerWidth >= 960 && setOpenNav(false)
     React.useEffect(() => {
         window.addEventListener(
             "resize",
-            () => window.innerWidth >= 960 && setOpenNav(false),
+            checkScreenWidth,
         );
+        return () => {
+            window.removeEventListener(
+                "resize",
+                checkScreenWidth,
+            );
+        }
     }, []);
 
     const navList = (
         <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8 text-capstackGray text-base ">
-            <li className="hover:text-capstackBlue">
+            <li className={`${pathname === '/' && 'text-capstackBlue'} hover:text-capstackBlue`}>
                 <Link href="/" className="py-4">
                     Points Farming
                 </Link>
             </li>
-            <li className="hover:text-capstackBlue">
+            <li className={`${pathname === '/strategy' && 'text-capstackBlue'} hover:text-capstackBlue`}>
                 <Link href="/strategy" className="py-4">
                     Strategy Custody
                 </Link>
