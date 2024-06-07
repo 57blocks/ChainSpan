@@ -3,7 +3,6 @@
 import React from "react";
 import {
     Navbar,
-    Typography,
     IconButton,
     Collapse,
 } from "@material-tailwind/react";
@@ -11,6 +10,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import UserConnection from "../UserConnection";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from '@/../public/images/logo.svg'
 
 export function StickyNavbar() {
     const pathname = usePathname()
@@ -48,13 +48,7 @@ export function StickyNavbar() {
         <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-12 lg:py-4">
             <div className="flex items-center justify-between">
                 <div className="flex items-center lg:gap-16">
-                    <Typography
-                        as="a"
-                        href="#"
-                        className="mr-4 cursor-pointer py-1.5 font-bold text-green-600"
-                    >
-                        ChainSpan
-                    </Typography>
+                    <img src={Logo.src} alt="logo-chain-span" />
                     <div className="mr-4 hidden lg:block">{navList}</div>
                 </div>
                 <div className="flex items-center gap-4">
