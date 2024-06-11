@@ -4,6 +4,7 @@ import { Button, Checkbox, Input, Typography } from "@material-tailwind/react";
 import { PropsWithChildren, memo } from "react";
 import Image from 'next/image'
 import ETHImage from '@/../public/images/eth.png'
+import { MemorizedConnectWalletButton } from "./Deposit";
 
 function InputWrapper({ children }: PropsWithChildren) {
     return <div className="flex w-full mt-6 bg-white rounded-lg p-6 items-center border">{children}</div>
@@ -14,24 +15,7 @@ export default function Withdraw() {
         isLoading,
         isConnected,
     } = useConnection()
-    const MemorizedConnectWalletButton = memo(({
-        isLoading,
-        isConnected
-    }: {
-        isLoading: boolean,
-        isConnected: boolean
-    }) => {
-        if (isConnected) return <Button
-            className="bg-capstackBlue text-white flex gap-3 items-center justify-center mt-6 w-full"
-        >
-            <span>Withdraw</span>
-        </Button>;
-        return <ConnectWalletButton
-            disabled={isLoading}
-            className="mt-6 w-full"
-            connectorId="blocto"
-        />
-    })
+
     return <>
         <Typography variant="h5" color="blue-gray">
             ETH Amount

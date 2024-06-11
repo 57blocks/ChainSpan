@@ -1,17 +1,12 @@
 'use client'
 
 import { ChevronLeftIcon } from "@heroicons/react/24/outline"
-import { Typography } from "@material-tailwind/react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import Detail from "./components/Detail"
 import ETHAmount from "./components/ETHAmount"
 import { useMemo } from "react"
-
-export const PageType = {
-    points: 'points',
-    strategy: 'strategy'
-}
+import { PageType } from "../constants"
 
 export default function Page() {
     const searchParams = useSearchParams()

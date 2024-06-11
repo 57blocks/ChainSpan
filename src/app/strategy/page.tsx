@@ -3,7 +3,7 @@
 import Banner from "@/components/Banner";
 import StrategyBanner from '@/../public/images/strategy-banner.png';
 import { TemplateCardGrid } from "@/components/TemplateCardGrid";
-import { PageType } from "../template/page";
+import { PageType } from "../constants";
 
 export default function Page() {
     return <main>
