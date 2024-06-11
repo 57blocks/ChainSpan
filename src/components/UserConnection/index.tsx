@@ -4,18 +4,14 @@ import ConnectWalletButton from "../ConnectWalletButton";
 import { Account } from "@/components/Account";
 import shortAddress from "@/utils/shortAddress";
 import { Button } from "@material-tailwind/react";
+import useConnection from "@/hooks/useConnection";
 
 export default function UserConnection() {
     const {
-        address,
+        isLoading,
         isConnected,
-        isConnecting,
-        isReconnecting
-    } = useAccount();
-    const isLoading = useMemo(
-        () => isConnecting || isReconnecting,
-        [isConnecting, isReconnecting]
-    )
+        address
+    } = useConnection()
     if (isLoading) {
         return <div className="animate-pulse">
             <Button
