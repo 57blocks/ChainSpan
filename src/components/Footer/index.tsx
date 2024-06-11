@@ -1,13 +1,14 @@
 'use client'
 import { Typography } from "@material-tailwind/react";
 import Logo from '@/../public/images/logo.svg'
+import Image from "next/image";
 
 export function FooterWithLogo() {
     return (
         <footer className="w-full bg-white p-8">
             <hr className="my-8 border-blue-gray-50" />
             <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-                <img src={Logo.src} alt="logo-chain-span" />
+                <Image src={Logo.src} alt="logo-chain-span" width={200} height={200} />
                 <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
                     <li>
                         <Typography

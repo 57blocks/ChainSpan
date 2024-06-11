@@ -9,6 +9,7 @@ import {
 import EtherIcon from '@/../public/images/ether.png';
 import CoinIcon from '@/../public/images/coin.png';
 import Link from "next/link";
+import Image from "next/image";
 export default function TemplateCard({
   type
 }: {
@@ -24,11 +25,11 @@ export default function TemplateCard({
       </Typography>
       <div className="mt-3 flex divide-x-[1px]">
         <div className="flex items-center pr-2">
-          <img src={EtherIcon.src} alt="" className="h-4 w-4 mr-2" />
+          <Image src={EtherIcon.src} alt="" width={200} height={200} className="h-4 w-4 mr-2" />
           <p>Ether.Fi</p>
         </div>
         <div className="flex items-center pl-2">
-          <img src={CoinIcon.src} alt="" className="h-4 w-4 mr-2" />
+          <Image src={CoinIcon.src} alt="" width={200} height={200} className="h-4 w-4 mr-2" />
           <p>Stargate</p>
         </div>
       </div>
