@@ -1,6 +1,7 @@
 import { Chip, Typography } from "@material-tailwind/react";
 import EtherIcon from '@/../public/images/ether.png';
 import CoinIcon from '@/../public/images/coin.png';
+import StepTable from "./StepTable";
 
 export default function Detail() {
     return <div className="border rounded-xl col-span-7 p-6">
@@ -39,7 +40,7 @@ export default function Detail() {
             <Typography variant="h5" color="blue-gray">
                 Batch Details
             </Typography>
-            table
+            <StepTable />
         </div>
     </div>
 }

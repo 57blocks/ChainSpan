@@ -3,6 +3,7 @@
 import Banner from "@/components/Banner";
 import StrategyBanner from '@/../public/images/strategy-banner.png';
 import { TemplateCardGrid } from "@/components/TemplateCardGrid";
+import { PageType } from "../template/page";
 
 export default function Page() {
     return <main>
@@ -10,6 +11,6 @@ export default function Page() {
             title="Strategy Custody"
             image={StrategyBanner}
         />
-        <TemplateCardGrid type="strategy" />
+        <TemplateCardGrid type={PageType.strategy} />
     </main>
 }

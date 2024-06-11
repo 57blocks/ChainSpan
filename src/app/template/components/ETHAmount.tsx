@@ -9,7 +9,11 @@ function InputWrapper({ children }: PropsWithChildren) {
     return <div className="flex w-full mt-6 bg-white rounded-lg p-6 items-center border">{children}</div>
 }
 
-export default function ETHAmount() {
+export default function ETHAmount({
+    action
+}: {
+    action: string
+}) {
     const {
         isLoading,
         isConnected,
@@ -24,7 +28,7 @@ export default function ETHAmount() {
         if (isConnected) return <Button
             className="bg-capstackBlue text-white flex gap-3 items-center justify-center mt-6 w-full"
         >
-            <span>Deposit</span>
+            <span>{action}</span>
         </Button>;
         return <ConnectWalletButton
             disabled={isLoading}
@@ -49,9 +53,9 @@ export default function ETHAmount() {
             />
             <Input
                 type="number"
-                placeholder="Please input ETH amount"
+                placeholder="ETH"
                 crossOrigin
-                className="!border-none text-right text-black text-lg placeholder:text-gray-500 placeholder:opacity-100 "
+                className="!border-none text-right text-black !text-[32px] placeholder:text-gray-500 placeholder:opacity-100 "
                 labelProps={{
                     className: 'hidden'
                 }}
@@ -77,10 +81,9 @@ export default function ETHAmount() {
         </Typography>
         <InputWrapper>
             <Input
-                type="number"
                 placeholder="Paste My Address"
                 crossOrigin
-                className="!border-none text-black text-lg placeholder:text-gray-500 placeholder:opacity-100 "
+                className="!border-none text-black !text-lg placeholder:text-gray-500 placeholder:opacity-100 "
                 labelProps={{
                     className: 'hidden'
                 }}

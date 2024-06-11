@@ -49,12 +49,12 @@ export default function TemplateCard({
       </div>
     </CardBody>
     <CardFooter className="pt-0 grid grid-cols-2 gap-3">
-      <Link href="/template?id=123123">
+      <Link href={`/template?id=123123&type=${type}&action=Deposit`}>
         <Button variant="outlined" className="w-full font-normal border-capstackBlue text-capstackBlue hover:bg-capstackBlue hover:text-white">
           Enter
         </Button>
       </Link>
-      <Link href="/template?id=123123&type=strategy">
+      <Link href={`/template?id=123123&type=${type}&action=Withdraw`}>
         <Button variant="outlined" className="w-full font-normal border-capstackBlue text-capstackBlue hover:bg-capstackBlue hover:text-white">
           Exit
         </Button>
