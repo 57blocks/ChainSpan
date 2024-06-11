@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useConnect } from "wagmi"
 
 export default function useWalletConnector(connectorId: string) {

@@ -5,5 +5,5 @@ interface IProps extends PropsWithChildren {
 }
 
 export default function InputWrapper({ className, children }: IProps) {
-    return <div className="flex w-full mt-6 bg-white rounded-lg p-6 items-center border">{children}</div>
+    return <div className={`relative flex w-full mt-6 bg-white rounded-lg p-6 items-center border ${className}`}>{children}</div>
 }
