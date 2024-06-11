@@ -1,4 +1,4 @@
-export default {
+const config = {
     button: {
         styles: {
             base: {
@@ -19,3 +19,5 @@ export default {
         }
     }
 }
+
+export default config;
