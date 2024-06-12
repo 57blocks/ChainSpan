@@ -45,7 +45,7 @@ export default function TemplateCard({
       }
       <div className="flex justify-between mt-3">
         <div>Rewards</div>
-        <div className="text-capstackBlue font-bold">20% APY</div>
+        <div className="text-capstackBlue font-bold">{template.rewards}</div>
       </div>
       <div className="flex flex-wrap gap-1 mt-3">
         {

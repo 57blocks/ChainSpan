@@ -13,6 +13,7 @@ export type TemplateType = {
     token: string,
     chain: string,
     protocol: string,
+    rewards: string,
     tags: string[]
     enter: Step[],
     exit: Step[]
@@ -26,11 +27,12 @@ export const PointsTemplates: TemplateType[] = [
         chain: 'BASE',
         protocol: 'Debridge',
         tags: ['Defi', 'USDC.e', 'Approve', 'Bridge'],
+        rewards: '20% APY',
         enter: [{
             action: 'Approve',
             desc: 'ETH to USDC.e',
             contract: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
-            contractLink: 'https://basescan.org/address/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913'
+            contractLink: 'https://basescan.org/address/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
         }, {
             action: 'Bridge',
             desc: 'ARB to BASE',
@@ -46,6 +48,7 @@ export const PointsTemplates: TemplateType[] = [
         chain: 'BASE/OP',
         protocol: 'Extra',
         tags: ['Defi', 'ETH', 'Swap', 'Approve'],
+        rewards: '20% APY',
         enter: [{
             action: 'Swap',
             desc: 'ETH to wrsETH',
@@ -66,17 +69,19 @@ export const PointsTemplates: TemplateType[] = [
         chain: 'Blast',
         protocol: 'ZeroLend',
         tags: ['Defi', 'USDB', 'Swap', 'Approve'],
+        rewards: '20% APY',
         enter: [{
             action: 'Swap',
             desc: '',
             contract: '0x111111125421ca6dc452d289314280a0f8842a65',
-            contractLink: 'https://basescan.org/address/0x111111125421ca6dc452d289314280a0f8842a65'
+            contractLink: 'https://basescan.org/address/0x111111125421ca6dc452d289314280a0f8842a65',
+
         }, {
             action: 'Approve',
             desc: '',
             contract: '0xedfa23602d0ec14714057867a78d01e94176bea0',
             contractLink: 'https://basescan.org/address/0xedfa23602d0ec14714057867a78d01e94176bea0'
         }],
-        exit: []
+        exit: [],
     },
 ]
