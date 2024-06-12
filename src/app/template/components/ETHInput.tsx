@@ -9,7 +9,7 @@ export default function ETHInput({
 }: {
     onChange?: (value: string) => void
 }) {
-    const [value, setValue] = useState('0.00000');
+    const [value, setValue] = useState('');
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         const value = event.target.value;
         if (Number(value) >= 0) {
@@ -27,7 +27,7 @@ export default function ETHInput({
         />
         <Input
             type="number"
-            placeholder="ETH"
+            placeholder="Amount"
             min={0}
             value={value}
             crossOrigin
@@ -40,7 +40,7 @@ export default function ETHInput({
             }}
             onChange={handleChange}
         />
-        <Button
+        {/* <Button
             size="sm"
             color={true ? "gray" : "blue-gray"}
             disabled={true}
@@ -48,6 +48,6 @@ export default function ETHInput({
             className="rounded h-8"
         >
             Max
-        </Button>
+        </Button> */}
     </InputWrapper>
 }
