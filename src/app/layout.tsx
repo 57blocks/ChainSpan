@@ -5,6 +5,7 @@ import MaterialTailwindThemeProvider from "@/materialTailwind/ThemeProvider";
 import { StickyNavbar } from "@/components/Nav";
 import Icon from '@/../public/images/icon.png'
 import { FooterWithLogo } from "@/components/Footer";
+import TemplatesProvider from "@/templates/TemplatesProvider";
 
 export const metadata: Metadata = {
   title: "ChainSpan",
@@ -20,11 +21,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <WalletProvider>
-          <MaterialTailwindThemeProvider>
-            <StickyNavbar />
-            {children}
-            <FooterWithLogo />
-          </MaterialTailwindThemeProvider>
+          <TemplatesProvider>
+            <MaterialTailwindThemeProvider>
+              <StickyNavbar />
+              {children}
+              <FooterWithLogo />
+            </MaterialTailwindThemeProvider>
+          </TemplatesProvider>
         </WalletProvider>
       </body>
     </html>
