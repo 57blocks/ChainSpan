@@ -12,6 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Logo from '@/../public/images/logo.svg'
+import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 
 export function StickyNavbar() {
     const pathname = usePathname()
@@ -54,7 +55,7 @@ export function StickyNavbar() {
                 </div>
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-x-1">
-                        <UserConnection />
+                        <DynamicWidget />
                     </div>
                     <IconButton
                         variant="text"

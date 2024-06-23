@@ -26,5 +26,5 @@ export default function UserConnection() {
     if (isConnected) {
         return <Account address={address || ''} />
     }
-    return <ConnectWalletButton connectorId="blocto" />
+    return <ConnectWalletButton connectorId="" />
 } 

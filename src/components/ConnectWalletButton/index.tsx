@@ -13,7 +13,7 @@ export default function ConnectWalletButton({
     className?: string,
     disabled?: boolean
 }) {
-    const { connecthandler } = useWalletConnector(connectorId)
+    const { connecthandler } = useWalletConnector()
     return <Button
         disabled={disabled}
         className={"bg-capstackBlue text-white flex gap-3 items-center justify-center " + className}

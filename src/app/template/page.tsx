@@ -36,7 +36,7 @@ export default function Page() {
         {
             template ? <div className="mt-6 grid grid-cols-12 gap-6">
                 <Detail template={template} action={action} />
-                <ETHAmount action={action} />
+                <ETHAmount action={action} template={template} />
             </div> : <TemplateNotFound />
         }
     </main >

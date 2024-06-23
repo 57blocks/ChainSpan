@@ -1,17 +1,16 @@
 import { useConnect } from "wagmi"
 
-export default function useWalletConnector(connectorId: string) {
+export default function useWalletConnector(connectorI?: string) {
     const { connectors, connect } = useConnect();
-    const connector = connectors.find(c => c.id === connectorId)
     const connecthandler = () => {
-        if (connector) {
+        if (connectors[0]) {
             connect({
-                connector
+                connector: connectors[0]
             })
         }
     };
     return {
         connecthandler,
-        connector
+        connector: connectors[0]
     }
 }

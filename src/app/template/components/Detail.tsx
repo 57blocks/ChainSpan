@@ -49,7 +49,11 @@ export default function Detail({ template, action }: { template: TemplateType, a
                 Batch Details
             </Typography>
             <StepTable
-                steps={action === ActionType.deposit ? template.enter : template.exit}
+                steps={
+                    action === ActionType.deposit
+                        ? template.enter.steps
+                        : template.exit.steps
+                }
             />
         </div>
     </div>

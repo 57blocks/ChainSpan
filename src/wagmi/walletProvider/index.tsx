@@ -2,13 +2,26 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
 import { wagmiConfig } from "../config";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react"; import {
+    DynamicContextProvider,
+} from '@dynamic-labs/sdk-react-core';
+import { EthereumWalletConnectors } from '@dynamic-labs/ethereum';
+import { DynamicWagmiConnector } from '@dynamic-labs/wagmi-connector';
 const queryClient = new QueryClient()
 
 export default function WalletProvider({ children }: PropsWithChildren) {
-    return <WagmiProvider config={wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
-            {children}
-        </QueryClientProvider>
-    </WagmiProvider>
+    return <DynamicContextProvider
+        settings={{
+            environmentId: process.env.NEXT_PUBLIC_dynamic_env as string,
+            walletConnectors: [EthereumWalletConnectors],
+        }}
+    >
+        <WagmiProvider config={wagmiConfig}>
+            <QueryClientProvider client={queryClient}>
+                <DynamicWagmiConnector>
+                    {children}
+                </DynamicWagmiConnector>
+            </QueryClientProvider>
+        </WagmiProvider>
+    </DynamicContextProvider>
 }

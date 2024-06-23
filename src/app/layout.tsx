@@ -6,6 +6,7 @@ import { StickyNavbar } from "@/components/Nav";
 import Icon from '@/../public/images/icon.png'
 import { FooterWithLogo } from "@/components/Footer";
 import TemplatesProvider from "@/templates/TemplatesProvider";
+import SmartAccountClientProvider from "@/alchemy/SmartAccountClientProvider";
 
 export const metadata: Metadata = {
   title: "ChainSpan",
@@ -21,13 +22,15 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <WalletProvider>
-          <TemplatesProvider>
-            <MaterialTailwindThemeProvider>
-              <StickyNavbar />
-              {children}
-              <FooterWithLogo />
-            </MaterialTailwindThemeProvider>
-          </TemplatesProvider>
+          <SmartAccountClientProvider>
+            <TemplatesProvider>
+              <MaterialTailwindThemeProvider>
+                <StickyNavbar />
+                {children}
+                <FooterWithLogo />
+              </MaterialTailwindThemeProvider>
+            </TemplatesProvider>
+          </SmartAccountClientProvider>
         </WalletProvider>
       </body>
     </html>
