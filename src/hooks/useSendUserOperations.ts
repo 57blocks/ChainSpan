@@ -1,4 +1,4 @@
-import { UserOperationRequests } from "@/templates/Functions/PointsTemplate2/transaction";
+import { UserOperationRequests } from "@/templates/PointsTemplate2/transaction";
 import { SmartAccountClient } from "@alchemy/aa-core";
 import { useState } from "react";
 
