@@ -37,6 +37,15 @@ export default function Detail({ template, action }: { template: TemplateType, a
                         : template.exit.steps
                 }
             />
+
+            <div className="mt-6">
+                <Typography variant="h5" color="blue-gray">
+                    How To Use
+                </Typography>
+                <div className="mt-6 border rounded-lg p-5 space-y-4">
+                    {template.details()}
+                </div>
+            </div>
         </div>
     </div>
 }

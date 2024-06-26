@@ -42,7 +42,7 @@ export default function ETHAmount({
 
     }
 
-    return <div className="relative border rounded-xl col-span-5 p-6 bg-capstackBlue/20 border-capstackBlue/30">
+    return <div className="relative border rounded-xl col-span-5 p-6 bg-capstackBlue/20 border-capstackBlue/30 self-start">
         {smartAccountClient && <AbstractAcount />}
         <Forms
             onSubmit={handleSubmit}

@@ -59,7 +59,8 @@ export type TemplateType = {
             formData: FormData,
             labels: string[],
         ) => UserOperationRequests,
-    }
+    },
+    details: () => ReactElement
 }
 
 export const PointsTemplates: TemplateType[] = [
