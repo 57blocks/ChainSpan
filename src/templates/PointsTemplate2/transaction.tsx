@@ -103,33 +103,6 @@ const newOrInvestToVaultPositionAbi = [
     },
 ]
 
-const trasferAbi = [
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "amount",
-                "type": "uint256"
-            }
-        ],
-        "name": "transfer",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-]
-
 function enterTransaction(
     formData: FormData,
     labels: string[],
@@ -168,20 +141,7 @@ function enterTransaction(
                         swapPath: '0x',
                     }],
                 }),
-            },
-            // {
-            //     target: '0xA8c263B5c18146ceA56Ac66Ee32072b5B07b45D5' as Address,
-            //     data: '0x',
-            //     value: BigInt(0.00015 * 1e18),
-            // },
-            // {
-            //     target: '0xEDfa23602D0EC14714057867A78d01e94176BEA0' as Address,
-            //     data: encodeFunctionData({
-            //         abi: trasferAbi,
-            //         functionName: trasferAbi[0].name,
-            //         args: ['0xA8c263B5c18146ceA56Ac66Ee32072b5B07b45D5', BigInt(0.000002 * 1e18)]
-            //     })
-            // }
+            }
         ]
         return requests;
     }
