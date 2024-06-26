@@ -2,6 +2,7 @@ import { Address } from "viem"
 import { UserOperationRequests } from "./PointsTemplate2/transaction"
 import { ReactElement } from "react"
 import PointsTemplate2 from "./PointsTemplate2"
+import PointsTemplate1 from "./PointsTemplate1"
 
 export type Step = {
     action: string,
@@ -37,7 +38,7 @@ export type TemplateType = {
     templateType: string,
     targetToken: {
         icon: any,
-        title: 'wrsETH'
+        title: string
     },
     desc: (template: TemplateType) => ReactElement
     tags: {
@@ -64,5 +65,6 @@ export type TemplateType = {
 }
 
 export const PointsTemplates: TemplateType[] = [
+    PointsTemplate1,
     PointsTemplate2,
 ]
