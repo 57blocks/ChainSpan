@@ -9,7 +9,7 @@ export default function TemplateRewards({ template, isBig = false }: { template:
         </div>
         <div className={`${isBig ? 'text-base' : 'text-sm'} text-[#020817]`}>
             {
-                template.rewards.points.map(p => (<div className="flex justify-between">
+                template.rewards.points.map(p => (<div key={p.title + p.number} className="flex justify-between">
                     <div>{p.title}</div>
                     <div className={`text-green-400 font-semibold ${isBig ? 'text-2xl' : 'text-xl'}`}>x {p.number}</div>
                 </div>))
@@ -18,7 +18,7 @@ export default function TemplateRewards({ template, isBig = false }: { template:
         <hr />
         <div className={`${isBig ? 'text-base' : 'text-sm'} text-[#020817]`}>
             {
-                template.rewards.token.map(p => (<div className="flex justify-between">
+                template.rewards.token.map(p => (<div key={p.title + p.number} className="flex justify-between">
                     <div className="flex gap-1">
                         <Image src={p.icon} alt="" width={100} height={100} className="h-5 w-5" />
                         <div>{p.title}</div>
