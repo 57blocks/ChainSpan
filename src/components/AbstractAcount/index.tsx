@@ -22,7 +22,7 @@ export default function AbstractAcount() {
             Smart Account Balance
         </Typography>
         <Typography className="my-2">
-            {AAbalance}
+            {Number(AAbalance) / 1e18} ETH
         </Typography>
     </>
 }

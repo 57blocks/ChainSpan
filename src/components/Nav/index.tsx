@@ -38,11 +38,11 @@ export function StickyNavbar() {
                     Points Farming
                 </Link>
             </li>
-            <li className={`${pathname === '/strategy' && 'text-capstackBlue'} hover:text-capstackBlue`}>
+            {/* <li className={`${pathname === '/strategy' && 'text-capstackBlue'} hover:text-capstackBlue`}>
                 <Link href="/strategy" className="py-4">
                     Strategy Custody
                 </Link>
-            </li>
+            </li> */}
         </ul>
     );
 

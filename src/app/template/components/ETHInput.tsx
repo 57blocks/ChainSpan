@@ -29,7 +29,6 @@ export default function ETHInput({
                 name={label}
                 type="number"
                 placeholder="Amount"
-                min={0}
                 value={value}
                 crossOrigin
                 className="!border-none text-right text-black !text-[32px] placeholder:text-gray-500 placeholder:opacity-100"

@@ -1,5 +1,8 @@
 import { Address } from "viem"
-import enterTransaction from "./Functions/PointsTemplate2/transaction"
+import enterTransaction, { UserOperationRequests } from "./Functions/PointsTemplate2/transaction"
+import { ReactElement } from "react"
+import wrsETHIcon from '@/../public/images/wrsETH.png'
+import ExIcon from '@/../public/images/exicon.png'
 
 export type Step = {
     action: string,
@@ -16,20 +19,47 @@ export type FormType = {
 export type TemplateType = {
     id: string,
     name: string,
-    token: string,
+    token?: string,
     chain: string,
     protocol: string,
-    rewards: string,
-    tags: string[]
+    isVip?: boolean
+    rewards: {
+        points: {
+            title: string,
+            number: string
+        }[],
+        token: {
+            icon: any,
+            number: string
+            title: string
+        }[]
+    },
+    dependence: string,
+    templateType: string,
+    targetToken: {
+        icon: any,
+        title: 'wrsETH'
+    },
+    desc: (template: TemplateType) => ReactElement
+    tags: {
+        title: string,
+        icon?: string,
+    }[]
     enter: {
         forms: FormType[],
         steps: Step[],
-        onTransaction?: (formData: FormData, labels: string[]) => void,
+        onTransaction?: (
+            formData: FormData,
+            labels: string[],
+        ) => UserOperationRequests,
     }
     exit: {
         forms: FormType[],
         steps: Step[],
-        onTransaction?: (formData: FormData, labels: string[]) => void,
+        onTransaction?: (
+            formData: FormData,
+            labels: string[],
+        ) => UserOperationRequests,
     }
 }
 
@@ -40,40 +70,50 @@ export const PointsTemplates: TemplateType[] = [
         token: 'ETH',
         chain: 'BASE/OP',
         protocol: 'Extra',
-        tags: ['Defi', 'ETH', 'Swap', 'Approve'],
-        rewards: '20% APY',
+        dependence: 'Kelp Staked',
+        templateType: 'Points Stack',
+        isVip: true,
+        targetToken: {
+            icon: wrsETHIcon,
+            title: 'wrsETH'
+        },
+        tags: [{
+            title: 'Base',
+            icon: 'https://icons.llamao.fi/icons/chains/rsz_base.jpg'
+        }, {
+            title: 'Defi'
+        }, {
+            title: 'Bridge'
+        }],
+        desc: (template: TemplateType) => (
+            <p>
+                Leveraging up on <span className="underline">{template.dependence}</span> wsrETH via <span className="underline">{template.protocol}</span>
+            </p>),
+        rewards: {
+            points: [
+                { title: 'KEP Points', number: '2.5' }
+            ],
+            token: [{ icon: ExIcon, number: '1', title: 'EX' }]
+        },
         enter: {
             forms: [{
-                label: 'amount1',
-                type: 'ETHInput'
-            }, {
-                label: 'amount2',
-                type: 'ETHInput'
-            }, {
-                label: 'amount3',
+                label: 'amount',
                 type: 'ETHInput'
             }],
-            steps: [{
-                action: 'Approve',
-                desc: 'ETH for 1inch swap contract',
-                contract: '0x111111125421ca6dc452d289314280a0f8842a65',
-                contractLink: 'https://basescan.org/address/0x111111125421ca6dc452d289314280a0f8842a65'
-            }, {
-                action: 'Swap',
-                desc: 'ETH to wrsETH',
-                contract: '0x111111125421ca6dc452d289314280a0f8842a65',
-                contractLink: 'https://basescan.org/address/0x111111125421ca6dc452d289314280a0f8842a65'
-            }, {
-                action: 'Approve',
-                desc: 'ETH to wrsETH',
-                contract: '0xedfa23602d0ec14714057867a78d01e94176bea0',
-                contractLink: 'https://basescan.org/address/0xedfa23602d0ec14714057867a78d01e94176bea0'
-            }, {
-                action: 'Enter',
-                desc: 'ETH to wrsETH',
-                contract: '0x111111125421ca6dc452d289314280a0f8842a65',
-                contractLink: 'https://basescan.org/address/0x111111125421ca6dc452d289314280a0f8842a65'
-            }],
+            steps: [
+                {
+                    action: 'Approve',
+                    desc: 'ETH to wrsETH',
+                    contract: '0xedfa23602d0ec14714057867a78d01e94176bea0',
+                    contractLink: 'https://basescan.org/address/0xedfa23602d0ec14714057867a78d01e94176bea0'
+                },
+                {
+                    action: 'Enter',
+                    desc: 'ETH to wrsETH',
+                    contract: '0xf9cFB8a62f50e10AdDE5Aa888B44cF01C5957055',
+                    contractLink: 'https://basescan.org/address/0xf9cFB8a62f50e10AdDE5Aa888B44cF01C5957055'
+                }
+            ],
             onTransaction: enterTransaction
         },
         exit: {
@@ -81,47 +121,4 @@ export const PointsTemplates: TemplateType[] = [
             steps: []
         },
     },
-    // {
-    //     id: 'PointsTemplate1',
-    //     name: 'Bridge for Pts',
-    //     token: 'USDC.e',
-    //     chain: 'BASE',
-    //     protocol: 'Debridge',
-    //     tags: ['Defi', 'USDC.e', 'Approve', 'Bridge'],
-    //     rewards: '20% APY',
-    //     enter: [{
-    //         action: 'Approve',
-    //         desc: 'ETH to USDC.e',
-    //         contract: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
-    //         contractLink: 'https://basescan.org/address/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
-    //     }, {
-    //         action: 'Bridge',
-    //         desc: 'ARB to BASE',
-    //         contract: '0xef4fb24ad0916217251f553c0596f8edc630eb66',
-    //         contractLink: 'https://basescan.org/address/0xef4fb24ad0916217251f553c0596f8edc630eb66'
-    //     }],
-    //     exit: []
-    // },
-    // {
-    //     id: 'PointsTemplate3',
-    //     name: 'Looping for Pts',
-    //     token: 'USDB',
-    //     chain: 'Blast',
-    //     protocol: 'ZeroLend',
-    //     tags: ['Defi', 'USDB', 'Swap', 'Approve'],
-    //     rewards: '20% APY',
-    //     enter: [{
-    //         action: 'Swap',
-    //         desc: '',
-    //         contract: '0x111111125421ca6dc452d289314280a0f8842a65',
-    //         contractLink: 'https://basescan.org/address/0x111111125421ca6dc452d289314280a0f8842a65',
-
-    //     }, {
-    //         action: 'Approve',
-    //         desc: '',
-    //         contract: '0xedfa23602d0ec14714057867a78d01e94176bea0',
-    //         contractLink: 'https://basescan.org/address/0xedfa23602d0ec14714057867a78d01e94176bea0'
-    //     }],
-    //     exit: [],
-    // },
 ]

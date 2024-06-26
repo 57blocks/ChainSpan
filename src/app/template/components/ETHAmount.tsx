@@ -1,6 +1,10 @@
 import { TemplateType } from "@/templates/pointsTemplates";
 import AbstractAcount from "@/components/AbstractAcount";
 import Forms from "./Forms";
+import { SmartAccountClientContext } from "@/alchemy/SmartAccountClientProvider";
+import { useContext } from "react";
+import useSendUserOperations from "@/hooks/useSendUserOperations";
+import Link from "next/link";
 
 export const ActionType = {
     deposit: 'Deposit',
@@ -14,6 +18,11 @@ export default function ETHAmount({
     template: TemplateType
     action: string
 }) {
+    const {
+        smartAccountClient
+    } = useContext(SmartAccountClientContext);
+
+    const { txHash, isLoading, sendUserOps } = useSendUserOperations()
 
     const forms = action === ActionType.deposit
         ? template.enter.forms
@@ -23,14 +32,27 @@ export default function ETHAmount({
         const txFunction = action === ActionType.deposit
             ? template.enter.onTransaction
             : template.exit.onTransaction
-        txFunction && txFunction(formData, labels)
+        if (txFunction && smartAccountClient) {
+            const requests = txFunction(formData, labels);
+            sendUserOps(
+                smartAccountClient,
+                requests
+            )
+        }
+
     }
 
     return <div className="border rounded-xl col-span-5 p-6 bg-capstackBlue/20 border-capstackBlue/30">
-        <AbstractAcount />
+        {smartAccountClient && <AbstractAcount />}
         <Forms
             onSubmit={handleSubmit}
             forms={forms}
         />
+        {
+            isLoading && 'loading'
+        }
+        {
+            txHash && <Link className="hover:text-capstackBlue" target="_blank" href={`https://basescan.org/tx/${txHash}`}>{txHash}</Link>
+        }
     </div>
 }
