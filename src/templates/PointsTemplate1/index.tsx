@@ -43,13 +43,13 @@ export default {
         steps: [
             {
                 action: 'Approve',
-                desc: 'ETH to wrsETH',
+                desc: 'ETH to Ether.Fi',
                 contract: '0xedfa23602d0ec14714057867a78d01e94176bea0',
                 contractLink: 'https://basescan.org/address/0xedfa23602d0ec14714057867a78d01e94176bea0'
             },
             {
                 action: 'Enter',
-                desc: 'ETH to wrsETH',
+                desc: 'ETH to Ether.Fi',
                 contract: '0xf9cFB8a62f50e10AdDE5Aa888B44cF01C5957055',
                 contractLink: 'https://basescan.org/address/0xf9cFB8a62f50e10AdDE5Aa888B44cF01C5957055'
             }

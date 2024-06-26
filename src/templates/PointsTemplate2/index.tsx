@@ -63,9 +63,9 @@ export default {
         steps: []
     },
     details: () => <>
-        <p>With official collaboration with Ether.fi. We can earn extra Ether.fi Loyalty Points by staking ETH. The Point Stack Strategy helps user to bridge $weETH to Base for further usage.</p>
+        <p>With collaboration with Kelp DAO, we can earn extra Kelp Milles and Eigen Layer points by staking ETH. The Point Stack Strategy helps us to stack multiple points via $wrsETH on BASE to carry out leveraged AMM on Extra.</p>
         <Typography variant="h5">Rewards</Typography>
-        <p>To grab both Ether.Fi and Zerolayer Point</p>
+        <p>To get Kelp Milles, Eigen Layer Point and Extra Governance Token</p>
         <Typography variant="h5">Details Procedures</Typography>
         <ul className='list-disc pl-7 space-y-2'>
             <li>
@@ -75,15 +75,15 @@ export default {
                 </ul>
             </li>
             <li>
-                Step2: Deposit ETH
+                Step2: Obtain wrsETH
                 <ul>
-                    <li>Ensure you have ETH readily available before carrying out further transactions. NB: There may be an extra gas fee required for activating the smart wallet for the first time on every chain.</li>
+                    <li>Ensure you have wrsETH readily available before carrying out further transactions. NB: There may be an extra gas fee required for activating the smart wallet for the first time on every chain.</li>
                 </ul>
             </li>
             <li>
                 Step3: Enter Amount
                 <ul>
-                    <li>Specify the amount of ETH you wish to use for this Strategy. You might also take at look the setup Icon on the right side corner.</li>
+                    <li>Specify the amount of wrsETH you wish to use for this Strategy. You might also take at look the setup Icon on the right side corner.</li>
                 </ul>
             </li>
             <li>
