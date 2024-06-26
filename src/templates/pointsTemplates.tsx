@@ -3,6 +3,7 @@ import { UserOperationRequests } from "./PointsTemplate2/transaction"
 import { ReactElement } from "react"
 import PointsTemplate2 from "./PointsTemplate2"
 import PointsTemplate1 from "./PointsTemplate1"
+import PointsTemplate3 from "./PointsTemplate3"
 
 export type Step = {
     action: string,
@@ -67,4 +68,5 @@ export type TemplateType = {
 export const PointsTemplates: TemplateType[] = [
     PointsTemplate1,
     PointsTemplate2,
+    PointsTemplate3
 ]

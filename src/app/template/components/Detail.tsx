@@ -11,20 +11,23 @@ import TemplateTokenTransfer from "@/components/TemplateTokenTransfer";
 export default function Detail({ template, action }: { template: TemplateType, action: string }) {
     return <div className="border rounded-xl col-span-7 p-6">
         <div className="grid grid-cols-3">
-            <div className="col-span-2 mr-10">
+            <div className="col-span-2 mr-10 self-start">
                 <div className="flex">
                     <div className="text-center text-black py-[6px] px-3 bg-[#EEF2FA] rounded-full">
                         {template.templateType}
                     </div>
                 </div>
                 <TemplateTokenTransfer template={template} isBig />
+                <div className="mt-4 text-capstackGray tracking-normal text-sm">
+                    {template.desc(template)}
+                </div>
+                <TemplateTags template={template} isBig />
             </div>
-            <TemplateRewards template={template} isBig />
+            <div className="self-start">
+                <TemplateRewards template={template} isBig />
+            </div>
         </div>
-        <div className="mt-4 text-capstackGray tracking-normal text-sm">
-            {template.desc(template)}
-        </div>
-        <TemplateTags template={template} isBig />
+
         <hr className="my-6" />
         <div>
             <Typography variant="h5" color="blue-gray">
