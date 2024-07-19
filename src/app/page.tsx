@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main>
       <Banner
-        title="Points Framing"
+        title="Points Farming"
         image={PointsBanner}
       />
       <TemplateCardGrid type={PageType.points} />
